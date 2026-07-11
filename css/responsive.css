@@ -1,0 +1,347 @@
+/* =====================================================
+   WEDDING INVITATION — responsive.css
+   Chỉ chứa OVERRIDE theo breakpoint (mobile-first: min-width).
+   Không định nghĩa lại toàn bộ style — style.css là nền tảng.
+
+   Breakpoints:
+   - ≥ 576px  : Mobile lớn
+   - ≥ 768px  : Tablet
+   - ≥ 992px  : Desktop nhỏ / Laptop
+   - ≥ 1200px : Desktop lớn
+   ===================================================== */
+
+/* =====================================================
+   ≥ 576px — MOBILE LỚN
+   ===================================================== */
+@media (min-width: 576px) {
+
+  .container {
+    --container-padding-x: 1.5rem;
+  }
+
+  /* Album: 2 cột giữ nguyên nhưng gap rộng hơn một chút */
+  .album-grid {
+    gap: 1rem;
+  }
+
+  /* Gift cards: bắt đầu cho phép 2 card cạnh nhau nếu vừa */
+  .gift-card {
+    padding: 2.2rem 1.8rem;
+  }
+
+  .rsvp-form {
+    padding: 2.5rem 2rem;
+  }
+}
+
+
+/* =====================================================
+   ≥ 768px — TABLET
+   ===================================================== */
+@media (min-width: 768px) {
+
+  :root {
+    --section-padding-y: 6.5rem;
+  }
+
+  .container {
+    --container-padding-x: 2rem;
+  }
+
+  /* ---- Hero ---- */
+  .hero-names {
+    line-height: 1.1;
+  }
+
+  /* ---- Countdown ---- */
+  .countdown-grid {
+    gap: 1.5rem;
+    max-width: 720px;
+  }
+
+  .countdown-box {
+    padding: 2rem 1rem;
+  }
+
+  /* ---- Love Story: Timeline zig-zag 2 cột ---- */
+  .timeline {
+    padding-left: 0;
+  }
+
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    width: 50%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 4rem;
+  }
+
+  .timeline-item:nth-child(odd) {
+    padding-right: 3rem;
+    text-align: right;
+    margin-left: 0;
+  }
+
+  .timeline-item:nth-child(even) {
+    padding-left: 3rem;
+    margin-left: 50%;
+  }
+
+  .timeline-dot {
+    left: auto;
+    right: -0.35rem;
+    top: 0.4rem;
+  }
+
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: -0.35rem;
+    right: auto;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-body {
+    text-align: right;
+  }
+
+  /* ---- Album: 3 cột ---- */
+  .album-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  /* ---- Wedding Info: giữ 2 cột (đã có ở HTML col-md-6) ---- */
+  .info-card {
+    padding: 2.5rem 2rem;
+  }
+
+  /* ---- Gift: 2 cột ngang hàng ---- */
+  #gift-container .col-12 {
+    flex: 0 0 auto;
+    width: 50%;
+    max-width: 380px;
+  }
+
+  /* ---- Guestbook: 2 cột ---- */
+  .guestbook-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ---- RSVP form width ---- */
+  .rsvp-form {
+    padding: 3rem;
+  }
+
+  /* ---- Floating buttons: đẩy ra mép nhiều hơn ---- */
+  .floating-btn {
+    right: 1.75rem;
+    width: 52px;
+    height: 52px;
+  }
+
+  .music-btn {
+    bottom: 6rem;
+  }
+
+  .scroll-top-btn {
+    bottom: 1.75rem;
+  }
+}
+
+
+/* =====================================================
+   ≥ 992px — DESKTOP NHỎ / LAPTOP
+   ===================================================== */
+@media (min-width: 992px) {
+
+  .container {
+    max-width: 960px;
+  }
+
+  /* ---- Hero ---- */
+  .hero-content {
+    max-width: 720px;
+  }
+
+  /* ---- Countdown ---- */
+  .countdown-grid {
+    max-width: 800px;
+    gap: 2rem;
+  }
+
+  .countdown-number {
+    font-size: 2.6rem;
+  }
+
+  /* ---- Love Story timeline: rộng hơn ---- */
+  .timeline {
+    max-width: 960px;
+  }
+
+  .timeline-item:nth-child(odd) {
+    padding-right: 4rem;
+  }
+
+  .timeline-item:nth-child(even) {
+    padding-left: 4rem;
+  }
+
+  .timeline-image {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* ---- Album: 4 cột, masonry-style bằng row-span nhẹ ---- */
+  .album-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .album-item:nth-child(4n+1) {
+    grid-row: span 2;
+  }
+
+  /* ---- Wedding Info cards: căn giữa nội dung tốt hơn khi rộng ---- */
+  .info-cards-row {
+    max-width: 960px;
+    margin-inline: auto;
+  }
+
+  /* ---- Maps ---- */
+  .map-wrapper {
+    aspect-ratio: 21 / 9;
+  }
+
+  /* ---- Gift ---- */
+  #gift-container {
+    max-width: 820px;
+    margin-inline: auto;
+  }
+
+  /* ---- RSVP ---- */
+  .rsvp-form {
+    max-width: 760px;
+  }
+
+  /* ---- Guestbook: 3 cột ---- */
+  .guestbook-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* ---- Parallax hero cho phép hiệu ứng fixed mượt hơn ở desktop ---- */
+  .hero-bg {
+    background-attachment: fixed;
+  }
+}
+
+
+/* =====================================================
+   ≥ 1200px — DESKTOP LỚN
+   ===================================================== */
+@media (min-width: 1200px) {
+
+  .container {
+    max-width: 1140px;
+  }
+
+  :root {
+    --section-padding-y: 8rem;
+  }
+
+  /* ---- Hero ---- */
+  .hero-names {
+    font-size: 4.5rem;
+  }
+
+  /* ---- Love story: thêm khoảng cách 2 bên timeline ---- */
+  .timeline-item:nth-child(odd) {
+    padding-right: 5rem;
+  }
+
+  .timeline-item:nth-child(even) {
+    padding-left: 5rem;
+  }
+
+  /* ---- Album: giữ 4 cột, tăng gap ---- */
+  .album-grid {
+    gap: 1.5rem;
+  }
+
+  /* ---- Info cards: thêm hover nổi bật hơn ---- */
+  .info-card:hover {
+    transform: translateY(-6px);
+  }
+
+  /* ---- Guestbook: giữ 3 cột, tăng gap ---- */
+  .guestbook-grid {
+    gap: 1.5rem;
+  }
+}
+
+
+/* =====================================================
+   ≤ 400px — MOBILE NHỎ (fine-tune, dùng max-width riêng)
+   ===================================================== */
+@media (max-width: 400px) {
+
+  :root {
+    --section-padding-y: 3.5rem;
+  }
+
+  .hero-names {
+    font-size: 2.2rem;
+  }
+
+  .countdown-grid {
+    gap: 0.6rem;
+  }
+
+  .countdown-box {
+    padding: 1rem 0.3rem;
+  }
+
+  .countdown-number {
+    font-size: 1.4rem;
+  }
+
+  .rsvp-form {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .gift-qr-img {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+
+/* =====================================================
+   LANDSCAPE MOBILE FIX (Hero height tránh bị cắt)
+   ===================================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+
+  .hero-section {
+    min-height: auto;
+    padding-block: 4rem;
+  }
+
+  .opening-overlay {
+    padding-block: 2rem;
+  }
+}
+
+
+/* =====================================================
+   PRINT (tuỳ chọn — ẩn phần không cần khi in thiệp)
+   ===================================================== */
+@media print {
+
+  .floating-btn,
+  .petals-layer,
+  .opening-overlay,
+  .loading-screen,
+  #rsvp,
+  #guestbook {
+    display: none !important;
+  }
+}
